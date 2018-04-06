@@ -17,6 +17,7 @@ const defaultColorScheme = {
 
 const customColorScheme = {
   primary: colors.blue.accent3,
+  primaryLight: colors.blue.accent3,
   secondary: colors.purple.accent2
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <v-jumbotron class="block" color="primary">
+  <v-jumbotron class="block" :gradient="gradient">
     <v-container fill-height>
       <v-layout align-center>
         <v-flex>
@@ -20,7 +20,12 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Welcome to the site"
+      default: 'Welcome to the site'
+    }
+  },
+  data () {
+    return {
+      gradient: 'to top, #004ecb, #75a7ff'
     }
   }
 };
