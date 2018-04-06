@@ -5,17 +5,23 @@ import 'vuetify/dist/vuetify.css'
 
 import colors from 'vuetify/es5/util/colors'
 
+const defaultColorScheme = {
+  primary: '#1976D2',
+  secondary: '#424242',
+  accent: '#82B1FF',
+  error: '#FF5252',
+  info: '#2196F3',
+  success: '#4CAF50',
+  warning: '#FFC107'
+}
+
+const customColorScheme = {
+  primary: colors.blue.accent3,
+  secondary: colors.purple.accent2
+}
+
 Vue.use(Vuetify, {
-  theme: {
-    // primary: '#3f51b5',
-    primary: colors.purple.base,
-    // secondary: '#b0bec5',
-    secondary: colors.grey.darken1,
-    // accent: '#8c9eff',
-    accent: colors.shades.black,
-    // error: '#b71c1c'
-    error: colors.red.accent3
-  }
+  theme: customColorScheme
 })
 
 new Vue({
