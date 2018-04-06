@@ -26,7 +26,7 @@ export default {
       gradient: 'to top, #004ecb, #75a7ff'
     }
   }
-};
+}
 </script>
 
 <style scoped>

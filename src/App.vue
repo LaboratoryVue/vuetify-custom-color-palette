@@ -3,12 +3,14 @@
 
     <Navigation />
 
-    <v-content>
-      <v-container fluid style="position: relative">
+    <v-content style="position: relative">
+      <v-container fluid>
         <Block v-for="block in blocks" :key="block.id" :title="block.name" />
-        <v-btn absolute bottom right fab color="error">
-          <v-icon>add</v-icon>
-        </v-btn>
+        <v-fab-transition>
+          <v-btn fixed bottom right fab color="secondary">
+            <v-icon>keyboard_arrow_up</v-icon>
+          </v-btn>
+        </v-fab-transition>
       </v-container>
     </v-content>
 
@@ -34,7 +36,8 @@ export default {
         { id: 5, name: "Block 5" },
         { id: 6, name: "Block 6" }
       ],
-      year: new Date().getFullYear()
+      year: new Date().getFullYear(),
+      link: 'https://codepen.io/gearmobile/pen/vRVRRx'
     };
   },
   components: {
