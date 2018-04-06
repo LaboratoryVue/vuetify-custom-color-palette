@@ -1,7 +1,7 @@
 <template>
   <v-app>
 
-    <Navigation />
+    <Navigation :dense="fab" :title="title" />
 
     <v-content style="position: relative">
       <v-container fluid>
@@ -23,17 +23,15 @@
       </v-container>
     </v-content>
 
-
-    <v-footer :fixed="fixed" app>
-      <span>&copy; {{ year }}</span>
-    </v-footer>
+    <Footer :year="year" :fixed="fixed" />
 
   </v-app>
 </template>
 
 <script>
-import Block from "./components/Block.vue"
-import Navigation from "./components/Navigation.vue"
+import Block from "./components/Block";
+import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 export default {
   data() {
     return {
@@ -46,8 +44,10 @@ export default {
         { id: 6, name: "Block 6" }
       ],
       year: new Date().getFullYear(),
-      link: 'https://codepen.io/gearmobile/pen/vRVRRx',
-      fab: false
+      link: "https://codepen.io/gearmobile/pen/vRVRRx",
+      fab: false,
+      fixed: false,
+      title: "Vuetify"
     };
   },
   components: {
@@ -55,13 +55,13 @@ export default {
     Navigation
   },
   methods: {
-    toTop () {
-      this.$vuetify.goTo(0)
+    toTop() {
+      this.$vuetify.goTo(0);
     },
-    onScroll () {
-      if (typeof window === 'underfined') return
-      const top = window.pageYOffset || document.documentElement.offsetTop || 0
-      this.fab = top > 300
+    onScroll() {
+      if (typeof window === "underfined") return;
+      const top = window.pageYOffset || document.documentElement.offsetTop || 0;
+      this.fab = top > 300;
     }
   }
 };
