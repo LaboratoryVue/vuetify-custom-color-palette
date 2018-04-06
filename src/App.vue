@@ -7,7 +7,7 @@
       <v-container fluid>
         <Block v-for="block in blocks" :key="block.id" :title="block.name" />
         <v-fab-transition>
-          <v-btn fixed bottom right fab color="secondary">
+          <v-btn @click.native="toTop" fixed bottom right fab color="secondary">
             <v-icon>keyboard_arrow_up</v-icon>
           </v-btn>
         </v-fab-transition>
@@ -43,6 +43,11 @@ export default {
   components: {
     Block,
     Navigation
+  },
+  methods: {
+    toTop () {
+      window.scrollTop()
+    }
   }
 };
 </script>

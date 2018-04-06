@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar class="nav" fixed app :gradient="gradient">
+  <v-toolbar class="nav" fixed app>
     <v-toolbar-side-icon></v-toolbar-side-icon>
     <v-btn icon>
       <v-icon v-html="'chevron_right'"></v-icon>
@@ -23,7 +23,7 @@ export default {
   name: "Navigation",
   data () {
     return {
-      gradient: 'to top, #004ecb, #75a7ff'
+      // gradient: 'to top, #004ecb, #75a7ff'
     }
   }
 }
