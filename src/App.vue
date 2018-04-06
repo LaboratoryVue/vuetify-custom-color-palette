@@ -7,7 +7,16 @@
       <v-container fluid>
         <Block v-for="block in blocks" :key="block.id" :title="block.name" />
         <v-fab-transition>
-          <v-btn @click.native="toTop" fixed bottom right fab color="secondary">
+          <v-btn
+            v-show="fab"
+            @click="toTop"
+            v-scroll="onScroll"
+            fixed
+            bottom
+            right
+            fab
+            color="secondary"
+          >
             <v-icon>keyboard_arrow_up</v-icon>
           </v-btn>
         </v-fab-transition>
@@ -37,7 +46,8 @@ export default {
         { id: 6, name: "Block 6" }
       ],
       year: new Date().getFullYear(),
-      link: 'https://codepen.io/gearmobile/pen/vRVRRx'
+      link: 'https://codepen.io/gearmobile/pen/vRVRRx',
+      fab: false
     };
   },
   components: {
@@ -46,7 +56,12 @@ export default {
   },
   methods: {
     toTop () {
-      window.scrollTop()
+      this.$vuetify.goTo(0)
+    },
+    onScroll () {
+      if (typeof window === 'underfined') return
+      const top = window.pageYOffset || document.documentElement.offsetTop || 0
+      this.fab = top > 300
     }
   }
 };
